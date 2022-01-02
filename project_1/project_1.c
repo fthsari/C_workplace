@@ -6,7 +6,7 @@
 int main()
 {
     int a = 0;
-    while (a < 64)
+    while (a < 55)
     {
         system("cls");
         FILE *plane = fopen("plane.txt", "r");
