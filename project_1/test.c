@@ -2,30 +2,22 @@
 #include <stdlib.h> 
 #include <windows.h>
 #include <time.h>
+#include <string.h>
 
-char *str_reverse_order(char *arr,int size)
+void ft_swap(char **s1, char **s2)
 {
-    char temp;
-    int revIndex, arrIndex;
-    revIndex = 0;
-    arrIndex = size - 1;
-    while (revIndex < arrIndex)
-    {
-        temp = arr[revIndex];
-        arr[revIndex] = arr[arrIndex];
-        arr[arrIndex] = temp;
-
-        revIndex++;
-        arrIndex++;
-    }
-
-    return arr;
+    char *temp = *s1;
+    *s1 = *s2;
+    *s2 = temp;
 }
 
 int main()
 {
-    char *test;
-    test = "hello";
-    test = str_reverse_order(test,5);
-    printf("%s",test);
+    system("cls");
+    char *test = "hello";
+    char *test2 = "sinyor";
+
+    printf("%s\t%s\n",test,test2);
+    ft_swap(&test,&test2);
+    printf("%s\t%s",test,test2);
 }
