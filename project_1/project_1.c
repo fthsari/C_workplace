@@ -15,7 +15,7 @@ void ft_swap(char **s1, char **s2)
 int main()
 {
     int a = 0;
-    while (a < 55)
+    while (a < 55 && a >= 0)
     {
         system("cls");
         FILE *plane = fopen("plane.txt", "r");
@@ -31,43 +31,6 @@ int main()
         }
         p_ch[a] = '\0';
         fscanf(plane, "%s %s %s %s %s", str1,str2,str3,str4,str5);
-        if (a == 54)
-        {
-            
-
-            while (a != 0)
-            {
-                FILE *plane = fopen("plane.txt", "r");
-                FILE *city = fopen("city.txt","r");
-
-                p_ch = malloc((a+1) * sizeof(char));
-                for(int t = 0; t < a; t++)
-                {
-                    p_ch[t] = ' ';
-                }
-                p_ch[a] = '\0';
-
-                fscanf(plane, "%s %s %s %s %s", str1,str2,str3,str4,str5);
-
-                printf("%s%s %s\n",p_ch,strrev(str2), strrev(str1));
-                printf("%s%s %s\n",p_ch,strrev(str4), strrev(str3));
-                printf("%s        %s\n",p_ch,strrev(str5));
-                for (int i = 0; i < 20; i++)
-                {
-                    putchar('\n');
-                }
-                while ((c_ch = fgetc(city)) != EOF)
-                {
-                    putchar(c_ch);
-                }
-
-                fclose(plane);
-                fclose(city);
-                a--;
-            }
-            continue; 
-        }
-        
         printf("%s%s %s\n",p_ch,str1, str2);
         printf("%s%s %s\n",p_ch,str3, str4);
         printf("%s        %s\n",p_ch,str5);
