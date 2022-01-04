@@ -1,10 +1,3 @@
-//
-//  main.c
-//  ProjectAttempt1
-//
-//  Created by Mehmet Soner Korucu on 1.01.2022.
-//
-
 #include <stdio.h>
 #include <windows.h>
 #include <stdlib.h>
