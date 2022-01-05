@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <stdlib.h>
 #include <time.h>
+#include <conio.h>
 
 void loadGame(void);
 void saveGame(void);
@@ -30,20 +31,20 @@ void loadGame(void)
     printf("Please write a file name to load game: ");
     scanf("%s",userName);
     printf("Searching for file..\n");
-    sleep(1);
+    Sleep(1);
     sprintf(fileName,"%s.txt",userName);
     FILE *savePtr = fopen(fileName,"r");
     if(savePtr == NULL)
     {
         printf("No such file.\nReturning to menu...");
-        sleep(1);
+        Sleep(1);
         system("cls");
         theMenu();
     }
     else
     {
         printf("File founded.\nLoading game...");
-        sleep(1);
+        Sleep(1);
         fscanf(savePtr,"%d%d%d%d%d%d",&save.planePos,&save.bombPos,&save.distance,&save.index,&save.letter,&save.score);
         fclose(savePtr);
     }
@@ -55,7 +56,7 @@ void saveGame(void)
     {
         system("cls");
         printf("You really wanna save the default game??\nReturning menu...");
-        sleep(1);
+        Sleep(1);
         system("cls");
         theMenu();
     }
@@ -72,9 +73,9 @@ void saveGame(void)
         fclose(savePtr);
     }
     printf("Game is being saved...\n");
-    sleep(1);
+    Sleep(1);
     printf("Game saved successfully!\n");
-    sleep(1);
+    Sleep(1);
     system("cls");
     theMenu();
 }
@@ -152,7 +153,7 @@ void gamePlay(void)
             for (int i = save.distance; i<=15 ; i++) printf("\n");
             if(save.distance >15) break;
             while((cityCH = fgetc(city)) != EOF) putchar(cityCH);
-            usleep(sleepTime);
+            Sleep(sleepTime);
             if(save.index%5 == 0) sleepTime -=2000;
             save.planePos++;
             fclose(city);
@@ -168,7 +169,7 @@ void returnGame(void)
     {
         system("cls");
         printf("Nothing to load.\nLoading new game..");
-        sleep(1);
+        Sleep(1);
         system("cls");
     }
     gamePlay();
@@ -185,12 +186,12 @@ void theMenu()
     scanf("%d",&menuInput);
     switch(menuInput)
     {
-        case 1: printf("map is being created...\n");sleep(1);newGame(); break;
+        case 1: printf("map is being created...\n");Sleep(1);newGame(); break;
         case 2: loadGame(); break;
         case 3: saveGame();break;
         case 4: printf("Return menu selected.\n"); returnGame(); break;
         case 5: break;
-        default: system("cls");printf("invalid input!");sleep(1);system("cls");theMenu();
+        default: system("cls");printf("invalid input!");Sleep(1);system("cls");theMenu();
     }
 }
 int main()
