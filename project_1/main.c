@@ -3,6 +3,13 @@
 #include <stdlib.h>
 #include <time.h>
 
+void loadGame(void);
+void saveGame(void);
+void gamePlay(void);
+void returnGame(void);
+void newGame(void);
+void theMenu();
+
 struct gamestate
 {
  int planePos;
